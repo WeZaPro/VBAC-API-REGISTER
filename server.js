@@ -8,7 +8,7 @@ const bodyParser = require("body-parser");
 require("dotenv").config();
 
 const app = express();
-const PORT = 3000;
+// const PORT = 3000;
 
 // Middleware
 app.use(cors());
@@ -232,6 +232,7 @@ async function appendDataToSheet(data) {
 // ];
 
 // Start server
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
+  console.log(`Server is running on port ${PORT}.`);
 });
