@@ -224,6 +224,11 @@ async function appendDataToSheet(data) {
   }
 }
 
+// simple route
+app.get("/", (req, res) => {
+  res.json({ message: "Welcome to Register API application." });
+});
+
 // ตัวอย่างการเรียกใช้งาน
 // const data = [
 //   ["วันที่", "ชื่อ", "คะแนน"], // หัวตาราง
