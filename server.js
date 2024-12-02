@@ -166,6 +166,7 @@ app.post("/submit", upload.single("file"), async (req, res) => {
       displayName: req.body.displayName,
       lineUserId: req.body.lineUserId,
       param: req.body.param,
+      price: req.body.price,
     };
 
     // console.log("data_register >>>  ", data_register);
@@ -186,6 +187,7 @@ app.post("/submit", upload.single("file"), async (req, res) => {
         data_register.date,
         data_register.fileName,
         data_register.fileUrl,
+        data_register.price,
       ],
     ];
     appendDataToSheet(register_data);
