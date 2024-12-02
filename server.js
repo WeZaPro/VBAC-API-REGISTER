@@ -211,7 +211,7 @@ app.post("/submit", upload.single("file"), async (req, res) => {
 app.post("/submitFreeCourse", async (req, res) => {
   const { date, name, phone, email, displayName, lineUserId, param, price } =
     req.body;
-  console.log("req.body.name ", req.body);
+  console.log("req.body ", req.body);
   try {
     const data_register_free = {
       fileUrl: "no",
