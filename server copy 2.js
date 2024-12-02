@@ -172,11 +172,11 @@ app.post("/submit", upload.single("file"), async (req, res) => {
 
     // console.log("data_register >>>  ", data_register);
 
-    // const data = [
-    //   // ["วันที่", "ชื่อ", "คะแนน"], // หัวตาราง
-    //   ["2024-11-30", "สมชาย", 95],
-    //   ["2024-11-30", "สมศรี", 88],
-    // ];
+    const data = [
+      // ["วันที่", "ชื่อ", "คะแนน"], // หัวตาราง
+      ["2024-11-30", "สมชาย", 95],
+      ["2024-11-30", "สมศรี", 88],
+    ];
     const register_data = [
       [
         data_register.param,
@@ -201,55 +201,6 @@ app.post("/submit", upload.single("file"), async (req, res) => {
         url: fileUrl, // ส่งคืน URL ของไฟล์ใน Google Drive
         mimetype: file.mimetype,
         size: file.size,
-      },
-    });
-  } catch (err) {
-    console.log("err--> ", err);
-  }
-});
-
-app.post("/submitFreeCourse", async (req, res) => {
-  const { date, name, phone, email, displayName, lineUserId, param, price } =
-    req.body;
-  console.log("req.body.name ", req.body.name);
-  try {
-    const data_register_free = {
-      fileUrl: "no",
-      fileName: "no",
-      date: req.body.date,
-      name: req.body.name,
-      phone: req.body.phone,
-      email: req.body.email,
-      displayName: req.body.displayName,
-      lineUserId: req.body.lineUserId,
-      param: req.body.param,
-      price: 0,
-    };
-
-    const register_data_free = [
-      [
-        data_register_free.param,
-        data_register_free.lineUserId,
-        data_register_free.displayName,
-        data_register_free.email,
-        data_register_free.phone,
-        data_register_free.name,
-        data_register_free.date,
-        data_register_free.fileName,
-        data_register_free.fileUrl,
-        data_register_free.price,
-      ],
-    ];
-    appendDataToSheet(register_data_free);
-
-    res.send({
-      message: "Save data successfully!",
-      dataCustomer: req.body,
-      file: {
-        name: "no",
-        url: "no", // ส่งคืน URL ของไฟล์ใน Google Drive
-        mimetype: "no",
-        size: "no",
       },
     });
   } catch (err) {
